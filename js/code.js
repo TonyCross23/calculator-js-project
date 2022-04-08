@@ -21,51 +21,67 @@ function calculate(){
     var num2 = document.getElementById("sNumber").value;
     var oper = document.getElementById("operators").value;
     var output;
+    var status = true;
 
      
 
         if(num1 == "" || num1 == null){
             firstNumerror.style.display = "block";
+            status = false;
         } else{
             firstNumerror.style.display = "none";
+            status = true;
         }
 
 
         if(num2 == "" || num2 == null){
             secondNumerror.style.display = "block";
+            status = false;
         } else{
             secondNumerror.style.display = "none";
+            status = true;
         }
 
 
         if(oper == "empty"){
             operatorserror.style.display = "block";
+            status = false;
         } else{
             operatorserror.style.display = "none";
+            status = true;
         }
 
-        switch(oper){
-            case 'add' : 
-                 output = parseInt(num1) + parseInt(num2) ;
-                 break;
-            case 'minus' : 
-                 output = parseInt(num1) - parseInt(num2) ;
-                 break;
-            case 'multiply' :
-                 output = parseInt(num1) * parseInt(num2) ;
-                break;
-            case 'division' :
-                 output = parseInt(num1) / parseInt(num2) ;
-                 break;
-
+        if(status == true){
+            switch(oper){
+                case 'add' : 
+                     output = parseInt(num1) + parseInt(num2) ;
+                     break;
+                case 'minus' : 
+                     output = parseInt(num1) - parseInt(num2) ;
+                     break;
+                case 'multiply' :
+                     output = parseInt(num1) * parseInt(num2) ;
+                    break;
+                case 'division' :
+                     output = parseInt(num1) / parseInt(num2) ;
+                     break;
+    
+    
+            }
+    
+            result.innerHTML = output;
+    
 
         }
-
-        result.innerHTML = output;
 }
+
+        
+
+        
 
 function clear_form(){
          form.reset()
+         result.innerHTML = "";
          firstNumerror.style.display = "none";
          secondNumerror.style.display = "none";
          operatorserror.style.display = "none";
